@@ -20,3 +20,7 @@ for($i = 0; $i < 8; $i++){
 }
 
 echo implode(", ", $firstnamelist) .PHP_EOL;
+
+$array = ["1", "3", "a", "b", "c", "d"];
+$out = array_slice($array, 0, 3);
+echo implode(", ", $out). PHP_EOL;
