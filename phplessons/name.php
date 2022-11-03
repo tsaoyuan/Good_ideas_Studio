@@ -8,3 +8,7 @@ $namelist = ['Tom', 'Marry', 'Lucas', 'Luna', 'Tya'];
 echo 'implode(" ", $array): '.implode(" " , $namelist) . PHP_EOL;
 echo 'implode(", ", $array): '.implode(", " , $namelist) . PHP_EOL;
 echo "'".implode("','" , $namelist)."'" . PHP_EOL;
+
+require_once './vendor/autoload.php';
+$faker = "Faker\Factory"::create();
+echo $faker->firstname().PHP_EOL;
