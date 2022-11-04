@@ -82,7 +82,7 @@ echo "補幾個空白： $addspace" .PHP_EOL;
 
 $fakenamelist =[];
 
-for($j = 0; $j < 10; $j++){
+for($j = 0; $j < 50; $j++){
 
     $fakername = $faker->firstname();
     $fakerlength = strlen($fakername);
@@ -97,7 +97,12 @@ for($j = 0; $j < 10; $j++){
     array_push($fakenamelist, $getname);
 }
 
-echo implode(", ", $fakenamelist). PHP_EOL;
+// echo implode(", ", $fakenamelist). PHP_EOL;
+
+
+for($i = 0; $i < count($fakenamelist); $i+=10){
+
+    $output = array_slice($fakenamelist, $i, 10);
+    echo implode(", ", $output). PHP_EOL;
 }
 
-echo implode(", ", $fakenamelist). PHP_EOL;
