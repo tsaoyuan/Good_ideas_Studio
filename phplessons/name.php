@@ -68,6 +68,9 @@ echo strlen($word).PHP_EOL;
 
 * don't consider "faker name's length" bigger than 10 words 
 */
+
+/*
+// hard code
 $fakername = $faker->firstname();
 $fakerlength = strlen($fakername);
 $addspace = 10 - $fakerlength;
@@ -75,10 +78,23 @@ $addspace = 10 - $fakerlength;
 echo "fakername： $fakername" .PHP_EOL;
 echo "fakerlength： $fakerlength" .PHP_EOL;
 echo "補幾個空白： $addspace" .PHP_EOL;
+*/
 
-for($i = 1; $i < $addspace+1; $i++){
-    $space = "-";
-    $fakername .= $space;
-    $getname = $fakername;
+$fakenamelist =[];
+
+for($j = 0; $j < 10; $j++){
+
+    $fakername = $faker->firstname();
+    $fakerlength = strlen($fakername);
+    $addspace = 10 - $fakerlength;
+
+    for($i = 1; $i < $addspace+1; $i++){
+        $space = " ";
+        $fakername .= $space;
+        $getname = $fakername;
+        array_push($fakenamelist, $getname);
+    }
+
 }
-echo "getname： $getname" .PHP_EOL;
+
+echo implode(", ", $fakenamelist). PHP_EOL;
