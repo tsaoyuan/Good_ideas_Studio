@@ -91,10 +91,13 @@ for($j = 0; $j < 10; $j++){
     for($i = 1; $i < $addspace+1; $i++){
         $space = " ";
         $fakername .= $space;
-        $getname = $fakername;
-        array_push($fakenamelist, $getname);
     }
 
+    $getname = $fakername;
+    array_push($fakenamelist, $getname);
+}
+
+echo implode(", ", $fakenamelist). PHP_EOL;
 }
 
 echo implode(", ", $fakenamelist). PHP_EOL;
