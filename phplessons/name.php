@@ -63,7 +63,8 @@ echo strlen($word).PHP_EOL;
 - get faker name
 - clac faker name's length
 - 10 - "faker name's length" = $space
-- push "faker name's length" + $space insert into $firstnamelist
+- echo "faker name" + $space 
+- push "faker name" + $space insert into $firstnamelist
 
 * don't consider "faker name's length" bigger than 10 words 
 */
@@ -75,3 +76,9 @@ echo "fakername： $fakername" .PHP_EOL;
 echo "fakerlength： $fakerlength" .PHP_EOL;
 echo "補幾個空白： $addspace" .PHP_EOL;
 
+for($i = 1; $i < $addspace+1; $i++){
+    $space = "-";
+    $fakername .= $space;
+    $getname = $fakername;
+}
+echo "getname： $getname" .PHP_EOL;
