@@ -106,3 +106,27 @@ for($i = 0; $i < count($fakenamelist); $i+=10){
     echo implode(", ", $output). PHP_EOL;
 }
 
+/* Jheng QA
+// two array difference
+$names_arr  =  array($namelist) ;
+$word_arr [] = $namelist;
+
+// $firstnamelist = [];
+for($i = 0; $i < 10; $i++){
+    array_push($names_arr, "$faker->firstname");
+    echo implode(",---", $names_arr). PHP_EOL;
+
+}
+
+for($i = 0; $i < 10; $i++){
+    array_push($word_arr, "$faker->firstname");
+    
+}
+
+// echo implode(", ", $firstnamelist) .PHP_EOL;
+
+// echo $namelist .PHP_EOL;
+// echo var_dump($names_arr) .PHP_EOL;
+// echo var_dump($word_arr) .PHP_EOL;
+
+*/
