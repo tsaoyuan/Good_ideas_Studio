@@ -61,15 +61,32 @@
         <p>This is answer is: </p>
         <?php
             if(isset($_GET['submoooit'])){
-                $resultnum1 = isset($_GET['numi']);
-                $resultnum2 = isset($_GET['num2']);
-                $operator = isset($_GET['operator']);
+                $resultnum1 = $_GET['num1'];
+                $resultnum2 = $_GET['num2'];
+                $operator = $_GET['operator'];
                 
-                echo "$resultnum1" .PHP_EOL;
-                echo "$resultnum2" .PHP_EOL;
-                echo "$operator" .PHP_EOL;
+                switch($operator){
+                    case "None":
+                        echo "Something wrrong! Yu need to select a method!".PHP_EOL;
+                        break;
+                    
+                    case "Plus":
+                        echo $resultnum1 + $resultnum2 .PHP_EOL;
+                        break;
+                    
+                    case "Subtrct":
+                        echo $resultnum1 - $resultnum2 .PHP_EOL;
+                        break;
 
-                
+                    case "Multily":
+                        echo $resultnum1 * $resultnum2 .PHP_EOL;
+                        break;
+
+                    case "Divide":
+                        echo $resultnum1 / $resultnum2 .PHP_EOL;
+                        break;
+
+                }
 
             }
             ?> 
