@@ -56,12 +56,24 @@
 
             </select>
             </br>
-            <button name="subm oooit" value="submit" type="submit">Submit</button>
+            <button name="submoooit" value="submit" type="submit">Submit</button>
         </form>
-        <p>This is answer is:</p>
-    </div>
-    <?php
+        <p>This is answer is: </p>
+        <?php
+            if(isset($_GET['submoooit'])){
+                $resultnum1 = isset($_GET['numi']);
+                $resultnum2 = isset($_GET['num2']);
+                $operator = isset($_GET['operator']);
+                
+                echo "$resultnum1" .PHP_EOL;
+                echo "$resultnum2" .PHP_EOL;
+                echo "$operator" .PHP_EOL;
 
-    ?>     
+                
+
+            }
+            ?> 
+    </div>
+    
 </body>
 </html>
