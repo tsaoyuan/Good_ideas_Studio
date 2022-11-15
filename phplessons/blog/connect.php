@@ -1,9 +1,10 @@
  <?php
  
 $servername = "localhost";
-$username = "root";
+$username = "luna";
 $password = "0000";
-$dbname = "blog";
+$dbname = "mysql";
+
 
 try {
   $conn = new PDO("mysql:host=$servername; dbname=$dbname", $username, $password);
@@ -14,4 +15,5 @@ try {
   echo "Connection failed: " . $e->getMessage();
 } 
 
-// $db = mysqli_connect("localhost","root", "0000", "mysql");
+
+// $db = mysqli_connect("localhost","tsao", "0000", "blog");
