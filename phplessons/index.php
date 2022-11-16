@@ -9,7 +9,8 @@
 <link rel="stylesheet" href="./calc.css">
 <body>
     <div class="wrap">   
-        <form>
+        <form action="./includes/calc.inc.php" method="post">
+            <p>My own calculator!</p>
             <input class="insert" type="text" name="num1" placeholder="Number 1">
             <select name="operator">
                 <option>None</option>
@@ -22,12 +23,7 @@
             </br>
             <button name="submoooit" value="submit" type="submit">Submit</button>
         </form>
-        <p>This is answer is: </p>
-        <?php
-            include 'includes/autoloader.inc.php';
-            $hi = new Calc();
-            $hi-> calc();
-        ?>
+        
 
     </div>
     
