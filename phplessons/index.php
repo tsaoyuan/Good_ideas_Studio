@@ -24,8 +24,11 @@
         </form>
         <p>This is answer is: </p>
         <?php
-          include "./includes/calc.inc.php";
+            include 'includes/autoloader.inc.php';
+            $hi = new Calc();
+            $hi-> calc();
         ?>
+
     </div>
     
 </body>
