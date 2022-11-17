@@ -38,6 +38,14 @@ foreach($animals as $animal) {
     $animal->instinct();
   }
 
+class AnimalAction {
+    public function action(AnimalInterface $animalType){
+        $animalType->instinct();
+    }
+  }
 
+$animalType = new Fish();
+$someoneDo = new AnimalAction();
+$someoneDo->action($animalType);
 
 
