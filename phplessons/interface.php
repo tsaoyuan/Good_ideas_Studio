@@ -1,12 +1,20 @@
 <?php
 interface AnimalInterface{
     public function instinct();
+    public function instinctProcess();
 }
 
 class Bird implements AnimalInterface{
+    public function sayHi(){
+        echo "Hi, I ca.. an.. ".PHP_EOL;
+    }
     public function instinct(){
         // fly
         echo "I can fly!" .PHP_EOL;
+    }
+    public function instinctProcess(){
+        $this->sayHi();
+        $this->instinct();
     }
 }
 
@@ -15,12 +23,18 @@ class Fish implements AnimalInterface{
         // swim
         echo "I can swim!" .PHP_EOL;
     }
+    public function instinctProcess(){
+        $this->instinct();
+    }
 }
 
 class Lion implements AnimalInterface{
     public function instinct(){
         // run
         echo "I can run!" .PHP_EOL;
+    }
+    public function instinctProcess(){
+        $this->instinct();
     }
 }
 
@@ -54,11 +68,12 @@ class Role {
 
     }
     public function action(AnimalInterface $animalType){
-        $animalType->instinct();
+        // $animalType->instinct();
+        $animalType->instinctProcess();
     }
   }
 
-$animalType = new Lion();
+$animalType = new Bird();
 $someoneDo = new Role();
 $someoneDo->setName("Ru Ru");
 echo "My name is " .$someoneDo->getNanme().".".PHP_EOL;
