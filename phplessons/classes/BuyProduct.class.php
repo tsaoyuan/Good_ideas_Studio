@@ -5,4 +5,5 @@ class BuyProduct extends Visa
     {
         return $this->visaPayment();
     }
+    
 }
