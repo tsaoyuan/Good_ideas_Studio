@@ -8,7 +8,14 @@ abstract class Visa
     }
 
     abstract public function getPayment();
-    abstract public function nothingToDo();
+
     private function sayHi()
+    {
+        echo "Hi, bro!" . PHP_EOL;
+    }
+
+    public function hello()
+    {
+        return $this->sayHi();
     }
 }

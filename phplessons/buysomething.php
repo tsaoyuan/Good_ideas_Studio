@@ -5,4 +5,4 @@ include_once "./classes/BuyProduct.class.php";
 $buyProduct = new BuyProduct();
 echo $buyProduct->getPayment();
 
-// echo $buyProduct->say();
+echo $buyProduct->say();

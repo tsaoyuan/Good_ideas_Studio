@@ -6,4 +6,8 @@ class BuyProduct extends Visa
         return $this->visaPayment();
     }
     
+    public function say()
+    {
+        echo $this->hello();
+    }
 }
