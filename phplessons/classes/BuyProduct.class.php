@@ -1,6 +1,8 @@
 <?php
-class BuyProduct{
-    public function getPayment(){
+class BuyProduct extends Visa
+{
+    public function getPayment()
+    {
         return $this->visaPayment();
     }
 }

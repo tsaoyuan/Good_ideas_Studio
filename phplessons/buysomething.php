@@ -4,3 +4,6 @@ include_once "./classes/BuyProduct.class.php";
 
 $buyProduct = new BuyProduct();
 echo $buyProduct->getPayment();
+
+$payTypes = new Visa();
+echo $payTypes->visaPayment();
