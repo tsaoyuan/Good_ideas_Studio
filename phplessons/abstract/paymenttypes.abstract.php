@@ -8,6 +8,7 @@ abstract class Visa
     }
 
     abstract public function getPayment();
+    abstract public function nothingToDo();
     private function sayHi()
     }
 }
