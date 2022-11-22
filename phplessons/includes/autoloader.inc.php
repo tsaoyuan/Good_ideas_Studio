@@ -2,7 +2,8 @@
 spl_autoload_register('myAutoLoader');
 
 function myAutoLoader($className){
-    /* no trns webpage
+    // no trns webpage
+
     $path = './classes/';
     $extension = '.class.php';
     $fullPath = $path. $className . $extension;
@@ -12,9 +13,10 @@ function myAutoLoader($className){
     }
 
     include_once $fullPath;
-    */
+    
 
     // trns webpage
+    /*
     $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
     if (strpos($url, 'includes')!== false){
@@ -29,6 +31,6 @@ function myAutoLoader($className){
     $fullPath = $path. $className . $extension;
 
     require_once $fullPath;
-
+    */
 }
 
