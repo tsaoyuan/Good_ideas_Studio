@@ -10,6 +10,9 @@
     <title>Document</title>
 </head>
 <body>
-    
+   <?php
+     $testObj = new Test(); 
+     $testObj->getUsers();
+   ?> 
 </body>
 </html>
