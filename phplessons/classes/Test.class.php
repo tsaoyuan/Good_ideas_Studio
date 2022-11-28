@@ -2,10 +2,16 @@
 class Test extends Dbh{
 
     public function getUsers(){
-       $sql = 'SELECT * FROM user';
+       $sql = 'SELECT * FROM users';
        $stmt = $this->connect()->query($sql);
        while($row = $stmt->fetch()){
-         echo $row['User'].PHP_EOL; 
+         echo $row['Name'].'</br>'; 
        }
     }
+    
+    public function setUsersStmt($name, $email, $uid, $pwd){
+        $sql = "INSERT INTO users(Name, Email, Uid, Pwd) VALUES(?, ?, ?, ?)"; 
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$name, $email, $uid, $pwd]);
+       }
 }

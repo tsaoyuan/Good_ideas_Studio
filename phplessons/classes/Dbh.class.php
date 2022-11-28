@@ -3,7 +3,7 @@ class Dbh{
     private $servername = "localhost";
     private $username = "luna";
     private $password = "0000";
-    private $dbname = "mysql";
+    private $dbname = "blog";
 
         
     protected function connect(){
