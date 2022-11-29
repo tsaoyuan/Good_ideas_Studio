@@ -23,5 +23,11 @@
             }
         ?>
     </ul>
+    <ul> 
+        <?php foreach($books as $book): ?>
+            <li><?= $book ?></li> 
+        <?php endforeach; ?>
+
+    </ul>
 </body>
 </html>
