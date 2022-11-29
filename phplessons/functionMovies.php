@@ -22,17 +22,30 @@
             ["name"=>"Me Before you",
             "date"=>"2016",
             "runningTime"=>"1.5hr"
+            ],
+
+            ["name"=>"Emma.",
+            "date"=>"2020",
+            "runningTime"=>"2hr"
             ]
         ];
 
-       foreach($movies as $movie):
-         if($movie["date"]==="2022"){
-            echo $movie['name']. "</br>";
-         }
-         else{
-            echo "No this movie!</br>";
-         }
-       endforeach;
+        function getNewMovie($movies, $years){
+        //    return "hi, there!</br>"; 
+            $newMovie = [];
+            
+            foreach($movies as $movie){
+                if($movie["date"]=== "$years"){
+                    array_push($newMovie, $movie);
+                }
+            }
+            return $newMovie;
+        }
+
+        
     ?>
+    <?php foreach(getNewMovie($movies, 2022) as $movie): ?>
+        <p><?= $movie['name'] ." In {$movie['date']} years "; ?></p>
+    <?php endforeach; ?>
 </body>
 </html>
