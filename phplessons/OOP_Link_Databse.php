@@ -12,6 +12,7 @@
 <body>
    <?php
      $testObj = new Test(); 
+     $testObj->setUsersStmt("Lion","lion@hotmail.com", "Lion777", "7878");
      $testObj->getUsers();
    ?> 
 </body>
