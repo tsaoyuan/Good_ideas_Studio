@@ -10,39 +10,39 @@
     <?php
         $movies = [
             ["name"=>"Jurassic World: Dominion",
-            "date"=>"2022",
+            "date"=>2022,
             "runningTime"=>"2.5hr"
             ],
 
             ["name"=>"Moonfall",
-            "date"=>"2022",
+            "date"=>2022,
             "runningTime"=>"2.1hr"
             ],
 
             ["name"=>"Me Before you",
-            "date"=>"2016",
+            "date"=>2016,
             "runningTime"=>"1.5hr"
             ],
 
             ["name"=>"Emma.",
-            "date"=>"2020",
+            "date"=>2020,
             "runningTime"=>"2hr"
             ]
         ];
 
-        $getMoviesByYear = function ($movies, $years){
+        function filter ($items, $key, $value){
         //    return "hi, there!</br>"; 
-            $newMovie = [];
+            $filterItems = [];
             
-            foreach($movies as $movie){
-                if($movie["date"]=== "$years"){
-                    array_push($newMovie, $movie);
+            foreach($items as $item){
+                if($item[$key] === $value){
+                    array_push($filterItems, $item);
                 }
             }
-            return $newMovie;
-        };
+            return $filterItems;
+        }
 
-        $getMovies = $getMoviesByYear($movies, 2022); 
+        $getMovies = filter($movies, 'name', 'Me Before you'); 
     ?>
     <?php foreach($getMovies as $movie): ?>
         <p><?= $movie['name'] ." In {$movie['date']} years "; ?></p>
