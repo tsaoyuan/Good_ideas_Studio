@@ -30,7 +30,7 @@
             ]
         ];
 
-        function getNewMovie($movies, $years){
+        $getMoviesByYear = function ($movies, $years){
         //    return "hi, there!</br>"; 
             $newMovie = [];
             
@@ -40,12 +40,13 @@
                 }
             }
             return $newMovie;
-        }
+        };
 
-        $getMovies = getNewMovie($movies, 2020); 
+        $getMovies = $getMoviesByYear($movies, 2022); 
     ?>
     <?php foreach($getMovies as $movie): ?>
         <p><?= $movie['name'] ." In {$movie['date']} years "; ?></p>
     <?php endforeach; ?>
+    
 </body>
 </html>
