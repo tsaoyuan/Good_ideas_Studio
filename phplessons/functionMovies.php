@@ -41,7 +41,7 @@
             return $filterItems;
         }
 
-        $getMovies = filter($movies, function($movie){
+        $getMovies = array_filter($movies, function($movie){
             // return $movie['name'] === 'Moonfall';
             return $movie['date'] > 2019;
         }); 
