@@ -42,9 +42,9 @@
             return $newMovie;
         }
 
-        
+        $getMovies = getNewMovie($movies, 2020); 
     ?>
-    <?php foreach(getNewMovie($movies, 2022) as $movie): ?>
+    <?php foreach($getMovies as $movie): ?>
         <p><?= $movie['name'] ." In {$movie['date']} years "; ?></p>
     <?php endforeach; ?>
 </body>
