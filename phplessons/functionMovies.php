@@ -30,19 +30,21 @@
             ]
         ];
 
-        function filter ($items, $key, $value){
-        //    return "hi, there!</br>"; 
+        function filter ($items, $fn){
             $filterItems = [];
             
             foreach($items as $item){
-                if($item[$key] === $value){
+                if($fn($item)){
                     array_push($filterItems, $item);
                 }
             }
             return $filterItems;
         }
 
-        $getMovies = filter($movies, 'name', 'Me Before you'); 
+        $getMovies = filter($movies, function($movie){
+            // return $movie['name'] === 'Moonfall';
+            return $movie['date'] > 2019;
+        }); 
     ?>
     <?php foreach($getMovies as $movie): ?>
         <p><?= $movie['name'] ." In {$movie['date']} years "; ?></p>
