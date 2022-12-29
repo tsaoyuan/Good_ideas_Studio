@@ -1,13 +1,15 @@
 <?php
 require './function.php';
 
-$uri = $_SERVER['REQUEST_URI'];
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'] ;
 // echo $uri;
 
-if($uri == '/'){
-    require './controllers/index.php';
-}else if($uri == '/about'){
-    require './controllers/about.php';
-}else if($uri == '/contact'){
-    require './controllers/contact.php';
+$routers = [
+    '/' => './controllers/index.php',
+    '/about' => './controllers/about.php',
+    '/contact' => './controllers/contact.php',
+];
+
+if(array_key_exists($uri, $routers)){
+    require  $routers[$uri];
 }
