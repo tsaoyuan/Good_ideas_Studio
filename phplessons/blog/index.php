@@ -12,4 +12,7 @@ $routers = [
 
 if(array_key_exists($uri, $routers)){
     require  $routers[$uri];
+}else{
+    http_response_code(404);
+    require './views/404.php';
 }
