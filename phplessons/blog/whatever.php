@@ -1,11 +1,19 @@
 <?php
 class Man{
     public $name, $age;
+    private static $instance = null;
 
-    public function __construct($name = 'Andy', $age = 18)
+    private function __construct($name = 'Andy', $age = 18)
     {
         $this->name = $name;
         $this->age = $age;
+    }
+
+    public static function getInstance(){
+        if(!self::$instance){
+            self::$instance = new static;
+        }
+        return self::$instance;
     }
 
     public function setValues($name, $age){
@@ -19,11 +27,17 @@ class Man{
     }
 }
 
-$anybody = new Man();
+// $anybody = new Man();
+$anybody = Man::getInstance();
 var_dump($anybody);
 
-$lulu = new Man("lulu",9);
-var_dump($lulu);
+$lulu = Man::getInstance();
+$lulu->setValues("lulu",22);
 $lulu->getValues();
-$lulu->setValues("LuFy",22);
-$lulu->getValues();
+
+$bodyOne = Man::getInstance();
+$bodyTwo = Man::getInstance();
+$bodyOne->setValues("Duck", 55);
+$bodyTwo->setValues("Teddy", 20);
+$bodyOne->getValues();
+$bodyTwo->getValues();
