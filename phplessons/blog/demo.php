@@ -6,21 +6,14 @@ class Conn{
     private static $dsn, $user, $pwd;
     private static $instance = null;
 
-    private function __construct()
-    {
-        
-    }
-    
+    private function __construct(){}
     public static function getInstance()
     {
         self::$dsn = "mysql:host=localhost;dbname=blog";
         self::$user = "luna";
         self::$pwd = "0000";
 
-        echo "1 進入 getInstance()".PHP_EOL;
         if (!self::$instance) {
-            echo "2 !self::instance == true" . PHP_EOL;
-            // self::$instance = new static;
             try{
                 self::$instance = new PDO(self::$dsn, self::$user, self::$pwd);
                 self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -33,10 +26,27 @@ class Conn{
     }
 }
 
-$conn = Conn::getInstance();
-echo "var_dump: ";var_dump($conn);
-$statement = $conn->prepare("SELECT * FROM users");
-$statement->execute();
-// var_dump($statement);
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+class Database{
+    private $db;
+    public function __construct()
+    {
+        $this->db = Conn::getInstance();
+    }
+
+    public function query($sql){
+
+        $statement = $this->db->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
+// $conn = Conn::getInstance();
+// $statement = $conn->prepare("SELECT * FROM users");
+// $statement->execute();
+// $posts =  $statement->fetchAll(PDO::FETCH_ASSOC);
+// dumpDie($posts);
+
+$db = new Database();
+$posts = $db->query("SELECT * FROM users where Id = 10"); 
 dumpDie($posts);
