@@ -1,7 +1,6 @@
 <?php
 require './function.php';
 
-// class Conn extends PDO{
 class Conn{
     private static $dsn, $user, $pwd;
     private static $instance = null;
@@ -37,16 +36,10 @@ class Database{
 
         $statement = $this->db->prepare($sql);
         $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $statement;
     }
 }
 
-// $conn = Conn::getInstance();
-// $statement = $conn->prepare("SELECT * FROM users");
-// $statement->execute();
-// $posts =  $statement->fetchAll(PDO::FETCH_ASSOC);
-// dumpDie($posts);
-
 $db = new Database();
-$posts = $db->query("SELECT * FROM users where Id = 10"); 
+$posts = $db->query("SELECT * FROM users")->fetchAll(PDO::FETCH_ASSOC); 
 dumpDie($posts);
