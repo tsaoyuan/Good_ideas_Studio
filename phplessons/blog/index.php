@@ -5,8 +5,11 @@ require './ConnSingleton.php';
 require './Database.php';
 
 $db = new Database();
-// $posts = $db->query("SELECT * FROM users")->fetchAll(PDO::FETCH_ASSOC); 
 $id = $_GET["id"];
-$sql = "SELECT * FROM Users where id = {$id}";
-$posts = $db->query($sql)->fetch(PDO::FETCH_ASSOC); 
+// question mark (?)
+// $sql = "SELECT * FROM Users where id = ?";
+// $posts = $db->query($sql, [$id])->fetch(PDO::FETCH_ASSOC); 
+// a named parameter like :id
+$sql = "SELECT * FROM Users where id = :id";
+$posts = $db->query($sql, [':id' => $id])->fetch(PDO::FETCH_ASSOC); 
 dumpDie($posts);
