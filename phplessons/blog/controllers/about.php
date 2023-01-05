@@ -1,3 +1,3 @@
 <?php
 $heading = 'About us';
-require '/var/www/html/phplessons/blog/views/about.view.php';
+require __DIR__.'/../views/about.view.php';
