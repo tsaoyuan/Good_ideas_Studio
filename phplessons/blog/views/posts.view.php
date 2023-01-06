@@ -6,7 +6,9 @@
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
         <?php foreach($posts as $post) : ?>
             <li>
-                <a class="hover:text-orange-400 hover:underline" href="/posts?id=1"><?= $post['Title']?></a>
+                <a class="hover:text-orange-400 hover:underline" href="/posts?id=<?= $post['Id'] ?>">
+                <?= $post['Title']?></a>
+
             </li>
         
 
