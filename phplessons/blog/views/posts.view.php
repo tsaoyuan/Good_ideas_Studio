@@ -14,7 +14,7 @@
 
         <?php endforeach; ?>
         <span class="mt-10 inline-block">
-            <a href="/posts" class="text-red-300">Go back Posts</a>
+            <a href="/" class="text-red-300">Go back Home</a>
         </span>
     </div>
 </main>
