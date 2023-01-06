@@ -6,13 +6,16 @@
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
         <?php foreach($posts as $post) : ?>
             <li>
-                <a class="hover:text-orange-400 hover:underline" href="/posts?id=<?= $post['Id'] ?>">
+                <a class="hover:text-orange-400 hover:underline" href="/post?id=<?= $post['Id'] ?>">
                 <?= $post['Title']?></a>
 
             </li>
         
 
         <?php endforeach; ?>
+        <span class="mt-10 inline-block">
+            <a href="/posts" class="text-red-300">Go back Posts</a>
+        </span>
     </div>
 </main>
 
