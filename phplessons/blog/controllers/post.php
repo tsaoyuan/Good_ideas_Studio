@@ -1,10 +1,6 @@
 <?php
 $db = new Database();
-
-// $post = $db->query("SELECT * FROM Posts where Uid = :Uid and Id = :Id", [
-//     ':Uid' => 'John666',
-//     ':Id' => $_GET['id']
-//     ])->fetch();
+$currentUid = 'John666';
 
 $post = $db->query("SELECT * FROM Posts where Id = :Id", [
     ':Id' => $_GET['id']
@@ -12,11 +8,11 @@ $post = $db->query("SELECT * FROM Posts where Id = :Id", [
 
 // 不符合搜尋條件
 if (! $post){
-    abort(404);
+    abort(Response::NOT_FOUND);
 }
 // 細分不符合搜尋條件的結果
-if($post['Uid'] !== 'John666'){
-    abort(403);
+if($post['Uid'] !== '$currentUid'){
+    abort(Response::FORBIDDEN);
 }
 
 $heading = 'Post';
