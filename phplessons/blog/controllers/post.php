@@ -4,8 +4,8 @@ $currentUid = 'John666';
 
 $post = $db->query("SELECT * FROM Posts where Id = :Id", [
     ':Id' => $_GET['id']
-    ])->fetch();
-
+    ])->find();
+dumpDie($post);
 // 不符合搜尋條件
 if (! $post){
     abort(Response::NOT_FOUND);
