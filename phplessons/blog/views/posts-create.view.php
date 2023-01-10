@@ -6,7 +6,9 @@
         <h1>Create a post</h1>
         <form method="POST">
             <label for="title" class="block">Title:</label>
-            <textarea id="title" type="text" name="title" placeholder="Your Title"></textarea>
+            <textarea id="title" type="text" name="title" placeholder="Your Title"><?= $_POST['title'] ?? "" ?>
+            </textarea>
+
             <?php if(isset($errors['title'])) : ?>
                 <p class="text-red-500"><?= $errors['title'] ?></p>
             <?php endif; ?>
