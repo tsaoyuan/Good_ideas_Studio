@@ -1,6 +1,6 @@
 <?php
 $db = new Database();
-$currentUid = 'John666';
+$currentUid = 'Andy Run';
 
 $post = $db->query("SELECT * FROM Posts where Id = :Id", [
     ':Id' => $_GET['id']

@@ -7,7 +7,8 @@
         <?php foreach($posts as $post) : ?>
             <li>
                 <a class="hover:text-orange-400 hover:underline" href="/post?id=<?= $post['Id'] ?>">
-                <?= $post['Title']?></a>
+                <!-- <?=  $post['Title'] ?></a> -->
+                <?=  htmlspecialchars($post['Title']) ?></a>
 
             </li>
         
