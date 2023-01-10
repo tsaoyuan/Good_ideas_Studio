@@ -9,6 +9,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(strlen($_POST['title']) == 0){
         $errors['title'] = 'Title is required!'; 
     }
+    // check title maximum number of characters
+    if(strlen($_POST['title']) > 250){
+        $errors['title'] = 'The title can not be more than 250 characters.'; 
+    } 
 
     // title have words, then insert into value
     if(empty($errors)){
