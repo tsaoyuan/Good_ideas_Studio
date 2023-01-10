@@ -7,6 +7,9 @@
         <form method="POST">
             <label for="title" class="block">Title:</label>
             <textarea id="title" type="text" name="title" placeholder="Your Title"></textarea>
+            <?php if(isset($errors['title'])) : ?>
+                <p class="text-red-500"><?= $errors['title'] ?></p>
+            <?php endif; ?>
 
             <button type="submit" class="block mt-5 hover:underline">Submit post</button>
         </form>
