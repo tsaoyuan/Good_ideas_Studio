@@ -6,16 +6,10 @@ $heading = 'Create Post';
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 // before insert into check
     $errors = [];
-    var_dump($errors);
     $validator = new Vaildator;
-    // check title empty input
-    if($validator->string($_POST['title'])){
-        $errors['title'] = 'Title is required!'; 
-    }
-
-    // check title maximum number of characters
-    if(strlen($_POST['title']) > 250){
-        $errors['title'] = 'The title can not be more than 250 characters.'; 
+    // mearge title empty input and title maximum number of characters
+    if(!strlen($validator->string($_POST['title'], 1, 250))){
+        $errors['title'] = 'The title of no more than 250 characters is required.'; 
     } 
 
     // title have words, then insert into value
