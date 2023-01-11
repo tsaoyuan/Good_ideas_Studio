@@ -1,14 +1,18 @@
 <?php
+require './Validator.php';
 $db = new Database();
 $heading = 'Create Post';
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 // before insert into check
     $errors = [];
+    var_dump($errors);
+    $validator = new Vaildator;
     // check title empty input
-    if(strlen($_POST['title']) == 0){
+    if($validator->string($_POST['title'])){
         $errors['title'] = 'Title is required!'; 
     }
+
     // check title maximum number of characters
     if(strlen($_POST['title']) > 250){
         $errors['title'] = 'The title can not be more than 250 characters.'; 
