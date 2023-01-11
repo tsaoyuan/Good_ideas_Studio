@@ -1,5 +1,5 @@
 <?php
-require './Validator.php';
+require __DIR__.'/../../Validator.php';
 $db = new Database();
 $heading = 'Create Post';
 
@@ -22,4 +22,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
 }
-require __DIR__.'/../views/posts-create.view.php';
+require __DIR__.'/../../views/posts/create.view.php';

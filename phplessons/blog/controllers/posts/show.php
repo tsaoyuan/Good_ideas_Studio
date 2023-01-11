@@ -10,4 +10,4 @@ $post = $db->query("SELECT * FROM Posts where Id = :Id", [
 authorize($post['Uid'] == $currentUid);
 
 $heading = 'Post';
-require __DIR__.'/../views/post.view.php';
+require __DIR__.'/../../views/posts/show.view.php';
