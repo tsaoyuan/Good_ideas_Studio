@@ -7,5 +7,6 @@ return [
     '/post' => './controllers/posts/show.php',
     '/about' => './controllers/about.php',
     '/contact' => './controllers/contact.php',
-    '/signup' => './controllers/signup.php'
+    '/signup' => './controllers/signup.php',
+    '/login' => './controllers/login.php'
 ];
