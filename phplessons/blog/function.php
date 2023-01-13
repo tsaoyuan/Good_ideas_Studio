@@ -21,3 +21,11 @@ function authorize($condition, $status = Response::FORBIDDEN)
     }
 }
 
+function authorizeLogin($conditionUid, $conditionPwd, $status = Response::FORBIDDEN)
+{
+    if(!$conditionUid || !$conditionPwd ){
+      abort($status);
+    }
+    
+    abort(200);
+}

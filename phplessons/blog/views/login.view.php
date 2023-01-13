@@ -11,9 +11,14 @@
 
                 <li class="mt-3"><label for="pwd" class="block">Password:</label><input id="pwd" type="password" name="pwd" placeholder="password"></li>
             </ul>
+            <?php if (isset($errors['emptyInput'])) : ?>
 
+                    <p class="text-red-500"><?= $errors['emptyInput'] ?></p>
+
+            <?php endif; ?>
             <button type="submit" class="block mt-3 hover:underline">Log in</button>
         </form>
+
     </div>
 </main>
 
