@@ -15,6 +15,8 @@
                         <a href="/about" class="text-gray-300  hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
 
                         <a href="/contact" class="text-gray-300  hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+
+                        <a href="/signup" class="text-gray-300  hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">SignUp</a>
                     </div>
                 </div>
             </div>
