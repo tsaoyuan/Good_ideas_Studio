@@ -36,10 +36,10 @@ function base_path($path){
   return BASE_PATH.$path;
 }
 
-// `view` 在之後的應用程式會被多次使用
-// 添加一個 View 這樣的補助函數是有意義的
-// reuse base_path()
-function view($path){
-  return base_path('views/'.$path); // views/index.view.php
+function view($path, $attributes = []){
+  // 用 extract() 將 $heading 代入 function view()
+  // extract() 將 array key 作為 varaible 使用，因此 $attributes 陣列的 'heading' 無須寫作成 '$heading'
+  extract($attributes);
+  require base_path('views/'.$path); // views/index.view.php
 }
 

@@ -1,7 +1,6 @@
 <?php
 require __DIR__.'/../Validator.php';
 $db = new Database();
-$heading = 'Log In';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // before insert into check
@@ -23,4 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 }
-require __DIR__ . '/../views/login.view.php';
+// require __DIR__ . '/../views/login.view.php';
+view("login.view.php", [
+    'heading' => 'Log In'
+]);
