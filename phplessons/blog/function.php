@@ -35,3 +35,11 @@ function authorizeLogin($conditionUid, $conditionPwd, $status = Response::FORBID
 function base_path($path){
   return BASE_PATH.$path;
 }
+
+// `view` 在之後的應用程式會被多次使用
+// 添加一個 View 這樣的補助函數是有意義的
+// reuse base_path()
+function view($path){
+  return base_path('views/'.$path); // views/index.view.php
+}
+
