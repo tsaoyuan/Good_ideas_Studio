@@ -29,3 +29,9 @@ function authorizeLogin($conditionUid, $conditionPwd, $status = Response::FORBID
     
     abort(200);
 }
+
+// relative path function (path hleper function)
+// why can I use BASE_PATH? index.php require function.php, then function can use `BASE_PATH`
+function base_path($path){
+  return BASE_PATH.$path;
+}

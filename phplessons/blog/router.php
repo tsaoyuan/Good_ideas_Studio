@@ -1,6 +1,6 @@
 <?php
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-$routers = require ('./routers.php');
+$routers = require __DIR__. '/routers.php';
 
 function abort($code = 404){
 
@@ -13,7 +13,8 @@ function abort($code = 404){
 function routerToController($uri, $routers)
 {
     if (array_key_exists($uri, $routers)) {
-        require  $routers[$uri];
+        // require  $routers[$uri];
+        require  base_path($routers[$uri]);
     } else {
         abort();
     }
