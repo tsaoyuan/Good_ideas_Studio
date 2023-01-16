@@ -9,5 +9,9 @@ $post = $db->query("SELECT * FROM Posts where Id = :Id", [
 // post 權限判斷
 authorize($post['Uid'] == $currentUid);
 
-$heading = 'Post';
-require __DIR__.'/../../views/posts/show.view.php';
+// require __DIR__.'/../../views/posts/show.view.php';
+
+view("posts/show.view.php", [
+    'heading' => 'Post',
+    'post' => $post 
+]);

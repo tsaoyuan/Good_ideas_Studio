@@ -2,5 +2,9 @@
 $db = new Database();
 $posts = $db->query("SELECT * FROM Posts")->get();
 
-$heading = 'Posts';
-require __DIR__.'/../../views/posts/index.view.php';
+// require __DIR__.'/../../views/posts/index.view.php';
+
+view("posts/index.view.php", [
+    'heading' => 'Posts',
+    'posts' => $posts 
+]);
