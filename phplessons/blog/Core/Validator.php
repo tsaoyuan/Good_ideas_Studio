@@ -1,4 +1,5 @@
 <?php
+namespace Core;
 
 class Vaildator{
     public static function string($value, $min = 1, $max = INF){

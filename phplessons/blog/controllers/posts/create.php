@@ -1,6 +1,6 @@
 <?php
 // require __DIR__.'/../../Validator.php';
-require base_path('Validator.php');
+require base_path('/Core/Validator.php');
 $db = new Database();
 
 // before insert into check

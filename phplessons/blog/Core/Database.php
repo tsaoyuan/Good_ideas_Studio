@@ -1,4 +1,7 @@
 <?php
+namespace Core;
+
+use PDOException;
 class Database{
     private $db;
     private $statement;

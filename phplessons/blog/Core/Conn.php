@@ -1,4 +1,8 @@
 <?php
+namespace Core;
+
+use PDO;
+use PDOException;
 class Conn{
     private static $dsn, $user, $pwd;
     private static $instance = null;

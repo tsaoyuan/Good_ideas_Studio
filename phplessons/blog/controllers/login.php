@@ -1,5 +1,6 @@
 <?php
-require __DIR__.'/../Validator.php';
+// require __DIR__.'/../Validator.php';
+require base_path('/Core/Validator.php');
 $db = new Database();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
