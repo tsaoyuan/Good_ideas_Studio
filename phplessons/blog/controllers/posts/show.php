@@ -1,4 +1,6 @@
 <?php
+use Core\Database;
+
 $db = new Database();
 $currentUid = 'Andy Run';
 

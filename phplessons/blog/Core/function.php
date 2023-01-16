@@ -1,4 +1,5 @@
 <?php
+use Core\Response;
 // var_dump($value) and die()
 function dumpDie($value){
     echo "<pre>";
