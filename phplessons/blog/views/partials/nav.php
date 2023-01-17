@@ -12,7 +12,7 @@
                         
                         <a href="/posts" class="text-gray-300  hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Posts</a>
 
-                        <a href="/signup" class="text-gray-300  hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">SignUp</a>
+                        <a href="/users/create" class="text-gray-300  hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">SignUp</a>
                         
                         <a href="/login" class="text-gray-300  hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
 

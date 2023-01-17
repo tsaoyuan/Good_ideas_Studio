@@ -4,10 +4,10 @@ use Core\Database;
 use Core\Vaildator;
 
 $db = new Database();
+$errors = [];
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // before insert into check
-    $errors = [];
     
     // mearge title empty input and title maximum number of characters
     if(!Vaildator::string($_POST['uid'], 1, 25) || !Vaildator::string($_POST['pwd'], 1, 25)){
@@ -26,6 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 
 // require __DIR__.'/../views/signup.view.php';
-view("signup.view.php", [
-    'heading' => 'Sign Up'
+view("users/create.view.php", [
+    'heading' => 'Sign Up',
+    'errors'=> $errors 
 ]);
