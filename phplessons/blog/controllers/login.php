@@ -4,13 +4,12 @@ use Core\Database;
 use Core\Vaildator;
 
 $db = new Database();
+$errors = [];
+$currentUid = $_POST["uid"];
+$currentPwd = $_POST["pwd"];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // before insert into check
-        $errors = [];
-        $currentUid = $_POST["uid"];
-        $currentPwd = $_POST["pwd"];
-
+    
     if (!Vaildator::string($_POST['uid'], 1, 25) || !Vaildator::string($_POST['pwd'], 1, 25)) {
         $errors['emptyInput'] = "Fill in all Fields";
     }else{
@@ -27,5 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 // require __DIR__ . '/../views/login.view.php';
 view("login.view.php", [
-    'heading' => 'Log In'
+    'heading' => 'Log In',
+    'errors' => $errors
 ]);
