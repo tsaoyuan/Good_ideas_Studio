@@ -8,5 +8,6 @@ return [
     '/about' => './controllers/about.php',
     '/contact' => './controllers/contact.php',
     '/users/create' => './controllers/users/create.php',
-    '/login' => './controllers/login.php'
+    '/login' => './controllers/login.php',
+    '/logout' => './controllers/logout.php'
 ];
