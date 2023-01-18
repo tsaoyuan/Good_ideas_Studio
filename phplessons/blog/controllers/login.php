@@ -39,7 +39,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }
 // require __DIR__ . '/../views/login.view.php';
-view("login.view.php", [
-    'heading' => 'Log In',
-    'errors' => $errors
-]);
+if(!isset($_SESSION)){
+    view("login.view.php", [
+        'heading' => 'Log In',
+        'errors' => $errors
+    ]);
+
+}else{
+
+    // user 登入成功 跳轉首頁 
+      view("index.view.php", [
+        'heading' => 'Home'
+      ]);
+}
