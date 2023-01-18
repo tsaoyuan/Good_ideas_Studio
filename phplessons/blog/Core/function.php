@@ -30,9 +30,9 @@ function authorizeLogin($conditionUid, $conditionPwd, $status = Response::FORBID
   // abort(200);
 
   // user 登入成功 跳轉首頁 
-  view("index.view.php", [
-    'heading' => 'Home'
-  ]);
+  // view("index.view.php", [
+  //   'heading' => 'Home'
+  // ]);
 }
 
 // relative path function (path hleper function)
