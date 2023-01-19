@@ -19,7 +19,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($errors)){
         
         $db->query("INSERT INTO `Posts` (`Uid`, `Title`) VALUES (:Uid, :Title)", [
-            ":Uid" => "Andy Run",
+            // ":Uid" => "Andy Run",
+            ":Uid" => $_SESSION['uid'],
             ":Title" => $_POST['title']
         ]);
     }
