@@ -28,8 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ':Pwd' => $currentPwd
         ])->find();
 
-        // dumpDie($user["Uid"]);
-        session_start();
+        // session_start();
         // user imformation set in $_SESSION["uid"] and $_SESSION["pwd"]
         $_SESSION["uid"] = $user["Uid"]; 
         $_SESSION["pwd"] = $user["Pwd"]; 
@@ -38,8 +37,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 }
-// require __DIR__ . '/../views/login.view.php';
-if(!isset($_SESSION)){
+// if(!isset($_SESSION)){
+// check 看 SESSION 內，有無內容！不能只確認 有無 SESSION 
+// SESSION 擺在 public/index.php 等同專案內的 page 都可 get SESSION
+if(empty($_SESSION)){
     view("login.view.php", [
         'heading' => 'Log In',
         'errors' => $errors
