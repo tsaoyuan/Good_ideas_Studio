@@ -5,7 +5,7 @@ use Core\Database;
 
 class Post{
     public $db;
-    public $id, $uid, $title, $content, $create_at;
+    protected $id, $uid, $title, $content, $create_at;
     public function __construct()
     {
        $this->db = new Database(); 
@@ -20,8 +20,10 @@ class Post{
             [
                 ':Id' => $this->id
             ]
-        )->find();
-        dumpDie($post); 
+        // )->find();
+        )->findOrFail();
+        // dumpDie($post); 
+        return $post;
     }
 
 // SET
@@ -29,4 +31,4 @@ class Post{
 // Read
 
 // Save
-    }
+}
