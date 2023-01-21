@@ -11,7 +11,16 @@ class Post{
        $this->db = new Database(); 
     }
 
-    // GET
+    // Read
+    public function all(){
+
+        $posts = $this->db->query(
+            "SELECT * FROM Posts"
+        )->get();
+        return $posts;
+
+    }
+
     public function getPost($id)
     {
         $this->id = $id;
@@ -26,9 +35,6 @@ class Post{
         return $post;
     }
 
-// SET
-
-// Read
-
 // Save
+
 }
