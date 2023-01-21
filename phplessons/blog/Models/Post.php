@@ -35,6 +35,16 @@ class Post{
         return $post;
     }
 
-// Save
+    // Save
+    public function save($uid, $title)
+    {
+        $this->db->query("INSERT INTO `Posts` (`Uid`, `Title`) VALUES (:Uid, :Title)", [
+            ":Uid" => $uid,
+            ":Title" => $title
+        ]);
+
+        return $this;
+
+    }
 
 }

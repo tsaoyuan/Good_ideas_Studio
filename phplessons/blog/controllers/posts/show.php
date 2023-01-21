@@ -2,6 +2,7 @@
 use Models\Post;
 
 $currentUid = $_SESSION['uid'];
+// dumpDie($_SESSION)
 
 // Models/Post
 $post = new Post();
