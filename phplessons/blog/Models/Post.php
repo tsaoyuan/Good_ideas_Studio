@@ -12,7 +12,6 @@ class Post{
     }
 
     // Read
-    // for Role: Admin
     public function all(){
 
         $posts = $this->db->query(
@@ -22,32 +21,65 @@ class Post{
 
     }
 
-    // for Role: Regular
-    public function getPostsByRole($uid, $role){
-
-        $this->role = $role;
+    public function getPostsByCurrentUid($uid)
+    {
         $this->uid = $uid;
-
-        switch($role){
-            case "Admin":
-                $posts = $this->db->query(
-                "SELECT * FROM Posts"
-                )->get();
-
-            break;
-
-            case "Regular":
-                $posts = $this->db->query(
-                "SELECT * FROM Posts WHERE uid = :uid",
-                [
-                    ":uid" => $this->uid
-                ]
-                )->get();
-            break;
-        }
+        $posts = $this->db->query(
+            "SELECT * FROM Posts WHERE uid = :uid",
+            [
+                ":uid" => $this->uid
+            ]
+        )->get();
         return $posts;
     }
 
+    // role() 回傳 $uid 所屬的 role, 供各個需要 role 作為初始設定的 function 使用
+    private function role($uid){
+
+        $this->uid = $uid;
+        $this->role = $_SESSION["role"];
+        switch($this->role){
+            case "Admin":
+                return $this->role = "Admin";
+            break;
+            
+            case "Regular":
+                return $this->role = "Regular";
+            break;
+
+        }
+
+    }
+
+    // index.php: Posts
+    public function getPosts($uid){
+        $this->role($uid);
+
+        switch($this->role){
+            case "Admin":
+                // $posts = $this->db->query(
+                // "SELECT * FROM Posts"
+                // )->get();
+                
+                return $this->all();
+                // dumpDie($this->all());
+            break;
+
+            case "Regular":
+                // $posts = $this->db->query(
+                // "SELECT * FROM Posts WHERE uid = :uid",
+                // [
+                //     ":uid" => $this->uid
+                // ]
+                // )->get();
+                
+                return $this->getPostsByCurrentUid($uid);
+                // dumpDie($this->getPostsByCurrentUid($uid));
+            break;
+        }
+    }
+
+    // show: Post
     public function getPost($id)
     {
         $this->id = $id;
