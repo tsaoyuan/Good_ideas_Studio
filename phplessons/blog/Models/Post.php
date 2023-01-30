@@ -5,13 +5,14 @@ use Core\Database;
 
 class Post{
     public $db;
-    protected $id, $uid, $title, $content, $create_at;
+    protected $id, $uid, $role, $title, $content, $create_at;
     public function __construct()
     {
        $this->db = new Database(); 
     }
 
     // Read
+    // for Role: Admin
     public function all(){
 
         $posts = $this->db->query(
@@ -19,6 +20,32 @@ class Post{
         )->get();
         return $posts;
 
+    }
+
+    // for Role: Regular
+    public function getPostsByRole($uid, $role){
+
+        $this->role = $role;
+        $this->uid = $uid;
+
+        switch($role){
+            case "Admin":
+                $posts = $this->db->query(
+                "SELECT * FROM Posts"
+                )->get();
+
+            break;
+
+            case "Regular":
+                $posts = $this->db->query(
+                "SELECT * FROM Posts WHERE uid = :uid",
+                [
+                    ":uid" => $this->uid
+                ]
+                )->get();
+            break;
+        }
+        return $posts;
     }
 
     public function getPost($id)

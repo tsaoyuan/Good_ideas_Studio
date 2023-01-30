@@ -32,23 +32,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // user imformation set in $_SESSION["uid"] and $_SESSION["pwd"]
         $_SESSION["uid"] = $user["Uid"]; 
         $_SESSION["pwd"] = $user["Pwd"]; 
+        $_SESSION["role"] = $user["Role"];
         // dumpDie($_SESSION);
     }
 
 
 }
 // if(!isset($_SESSION)){
-// check 看 SESSION 內，有無內容！不能只確認 有無 SESSION 
+// check 看 SESSION 內，有無內容！
 // SESSION 擺在 public/index.php 等同專案內的 page 都可 get SESSION
 if(empty($_SESSION)){
+// SESSION 無內容，待在 login 頁面, 顯示 Error 訊息
     view("login.view.php", [
         'heading' => 'Log In',
         'errors' => $errors
     ]);
 
 }else{
-
-    // user 登入成功 跳轉首頁 
+// SESSION 有內容，登入；
+// user 登入成功 跳轉首頁 
       view("index.view.php", [
         'heading' => 'Home'
       ]);
