@@ -5,7 +5,7 @@
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
         <h1>Update a post</h1>
-        <?= $postId ?>
+        <?= dumpDie($result) ?>
     </div>
 </main>
 

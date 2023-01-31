@@ -4,10 +4,22 @@ use Core\Vaildator;
 use Models\Post;
 
 $postId = $_POST['postId'];
-dumpDie($postId);
+// dumpDie($postId);
+
+$post = new Post();
+
+$errors = [];
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    
+    $result = $post->getPost($postId);
+    
+}
 
 view("posts/update.view.php", [
     'heading' => 'Update Post',
     'errors'=> $errors, 
-    'postId'=> $postId 
+    // 'postId'=> $postId,
+    'result' => $result
+
 ]);
