@@ -14,6 +14,11 @@
         <span class="mt-10 inline-block">
             <a href="/posts" class="text-red-300">Go back Posts</a>
         </span>
+
+        <form action="/post/update" method="POST">
+            <input name="postId" value="<?= $_GET["id"]?>">
+            <input class="text-blue-500 hover:underline" type="submit" value="Edit">
+        </form>
     </div>
 </main>
 
