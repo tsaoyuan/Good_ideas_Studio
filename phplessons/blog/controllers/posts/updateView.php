@@ -2,16 +2,17 @@
 require base_path('/Core/Validator.php');
 use Core\Vaildator;
 use Models\Post;
-use Core\Database;
+// use Core\Database;
 
 $postId = $_POST['postId'];
-$db = new Database();
+// $db = new Database();
 // dumpDie($postId);
 
 $post = new Post();
 
 $errors = [];
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+    /*
     $result = $db->query(
         'SELECT * FROM Posts WHERE Id = :Id',
         [
@@ -19,12 +20,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         ]
         // )->findOrFail();
     )->find();
-            
+    */
+    $result = $post->getPost($postId);
 }
 
 view("posts/updateView.view.php", [
 'heading' => 'Update View Post',
 'errors'=> $errors, 
-// 'postId'=> $postId,
 'result' => $result
 ]);

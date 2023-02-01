@@ -108,11 +108,11 @@ class Post{
 
     // Update
     public function update($id, $title){
-        $post = $this->db->query('UPDATE Posts SET Title = :title WHERE Id = :id', [
+         $this->db->query('UPDATE Posts SET Title = :title WHERE Id = :id', [
             ':id' => $id,
             ':title' => $title
         ]);
-        return $post;
+        return $this;
     }
 
 }
