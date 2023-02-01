@@ -15,9 +15,12 @@
             <a href="/posts" class="text-red-300">Go back Posts</a>
         </span>
 
-        <form action="/post/update" method="POST">
+        <form action="/post/updateview" method="POST">
+        <!-- <form  method="POST"> -->
             <input type="hidden" name="postId" value="<?= $_GET["id"]?>">
-            <input class="text-blue-500 hover:underline" type="submit" value="Edit">
+            <!-- <input name="postId" value="<?= $_GET["id"]?>"> -->
+            <button type="submit" name="Edit" class="block mt-5 hover:underline">Edit</button>
+            <!-- <input class="text-blue-500 hover:underline" type="submit" value="Edit"> -->
         </form>
     </div>
 </main>
