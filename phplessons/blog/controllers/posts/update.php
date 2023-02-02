@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             view("posts/updateView.view.php", [
                 'heading' => 'Update View Post',
                 'errors' => $errors,
+                'result' => $result
             ]);
 
         }else{
@@ -36,5 +37,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 } 
-    }
-}
