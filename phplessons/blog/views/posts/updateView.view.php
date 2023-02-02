@@ -10,6 +10,11 @@
             <label for="title" class="block">Title:</label>
             <textarea id="title" type="text" name="title" placeholder="Your Title"><?= htmlspecialchars($result['Title']) ?? "" ?></textarea>
 
+
+            <?php if(isset($errors['title'])) : ?>
+                <p class="text-red-500"><?= $errors['title'] ?></p>
+            <?php endif; ?>
+
             <input type="hidden" id="postId" name="postId" value="<?= $result["Id"]?>">
             <button type="submit" name="update" class="block mt-5 hover:underline">Save</button>
         </form>

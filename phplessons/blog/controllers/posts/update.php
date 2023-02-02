@@ -2,13 +2,11 @@
 require base_path('/Core/Validator.php');
 use Core\Vaildator;
 use Models\Post;
-// use Core\Database;
 
 // dumpDie($_POST);
 // dumpDie($_POST["title"]);
 $postId = $_POST['postId'];
 $postTitle = $_POST['title'];
-// $db = new Database();
 // dumpDie($postId);
 
 $post = new Post();
@@ -16,17 +14,27 @@ $post = new Post();
 $errors = [];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["update"])) {
-        
-        // $db->query('UPDATE Posts SET Title = :title WHERE Id = :id', [
-        //     ':id' => $_POST["postId"],
-        //     ':title' => $_POST["title"]
-        // ]);
 
-        $post->update($postId, $postTitle);
+        if(!Vaildator::string($postTitle, 1, 250)){
+            // Validator Fail
+            $result = $post->getPost($postId);
+            $errors['title'] = 'The title of no more than 250 characters is required.'; 
+            // dumpDie($postTitle.$errors['title']);
 
-        // 強制轉址：
-        header("Location: /posts");
+            // Validator Fail, then stay updateView.view.php
+            view("posts/updateView.view.php", [
+                'heading' => 'Update View Post',
+                'errors' => $errors,
+            ]);
+
+        }else{
+            // Validator Success
+            $post->update($postId, $postTitle);
+    
+            // 強制轉址：
+            header("Location: /posts");
+        }
     }
-} else {
-    echo "nothing";
 } 
+    }
+}
