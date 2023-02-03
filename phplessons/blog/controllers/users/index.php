@@ -8,8 +8,7 @@ $users = new User();
 
 $users = $users->getUsers($_SESSION["uid"]);
 // dumpDie($_SESSION);
-dumpDie($users);
-// dumpDie($users->{'db'});
+// dumpDie($users);
 /*
 if(isset($_SESSION["uid"])){
     $currentUser = $_SESSION["uid"];
@@ -17,6 +16,6 @@ if(isset($_SESSION["uid"])){
 */
 view("users/index.view.php", [
     'heading' => 'Manage Account',
-    // 'posts' => $posts,
+    'users' => $users,
     // 'currentUser' => $currentUser
 ]);

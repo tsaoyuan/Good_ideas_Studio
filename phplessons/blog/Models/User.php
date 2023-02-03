@@ -15,12 +15,9 @@ class User{
     public function all(){
 
          $users = $this->db->query(
-        //  $this->db->query(
             "SELECT * FROM Users"
         )->get();
         return $users;
-        // return $this;
-
     }
 
     public function getPostsByCurrentUid($uid)
