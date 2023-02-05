@@ -11,6 +11,7 @@ return [
     '/contact' => './controllers/contact.php',
     '/users/create' => './controllers/users/create.php',
     '/users' => './controllers/users/index.php',
+    '/user' => './controllers/users/show.php',
     '/login' => './controllers/login.php',
     '/logout' => './controllers/logout.php'
 ];

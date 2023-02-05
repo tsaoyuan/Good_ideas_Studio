@@ -33,9 +33,11 @@ class User{
     }
 
     // role() 回傳 $uid 所屬的 role, 供各個需要 role 作為初始設定的 function 使用
-    private function role($uid){
+    // private function role($uid){
+    // public function role($uid){
+    public function role(){
 
-        $this->uid = $uid;
+        // $this->uid = $uid;
         $this->role = $_SESSION["role"];
         switch($this->role){
             case "Admin":
@@ -77,4 +79,27 @@ class User{
             break;
         }
     }
+
+    
+    public function getUser($id)
+    {
+        $this->id = $id;
+        $post = $this->db->query(
+            'SELECT * FROM Users WHERE Id = :Id',
+            [
+                ':Id' => $this->id
+            ]
+        // )->find();
+        )->findOrFail();
+        // dumpDie($post); 
+        return $post;
+    }
+
+    public function update($id, $role){
+        $this->db->query('UPDATE Users SET Role = :role WHERE Id = :id', [
+           ':id' => $id,
+           ':role' => $role
+       ]);
+       return $this;
+   }
 }
