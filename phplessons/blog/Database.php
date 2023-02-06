@@ -6,10 +6,10 @@ class Database{
         $this->db = Conn::getInstance();
     }
 
-    public function query($sql){
+    public function query($sql, $params = []){
 
         $statement = $this->db->prepare($sql);
-        $statement->execute();
+        $statement->execute($params);
         return $statement;
     }
 }
