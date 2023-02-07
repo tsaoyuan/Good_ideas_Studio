@@ -8,8 +8,13 @@ class Database{
 
     public function query($sql, $params = []){
 
-        $statement = $this->db->prepare($sql);
-        $statement->execute($params);
-        return $statement;
+        try{
+            $statement = $this->db->prepare($sql);
+            $statement->execute($params);
+            return $statement;
+            
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
     }
 }
