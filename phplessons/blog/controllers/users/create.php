@@ -5,15 +5,18 @@ use Core\Vaildator;
 
 $db = new Database();
 $message = [];
+$signUpUid = $_POST["uid"];
+$signUpPwd = $_POST["pwd"];
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // before insert into check
+    // dumpDie($signUpUid);
     
     // mearge title empty input and title maximum number of characters
-    if(!Vaildator::string($_POST["uid"], 1, 25) || !Vaildator::string($_POST['pwd'], 1, 25)){
+    if(!Vaildator::string($signUpUid, 1, 25) || !Vaildator::string($signUpPwd, 1, 25)){
         $message["emptyInput"] = "Fill in all Fields";
     }
     
-    if(!Vaildator::string($_POST["pwd"], 1, 4)){
+    if(!Vaildator::string($signUpPwd, 1, 4)){
         $message["pwdOverLength"] = "Password Over 4 Code";
     }
 
@@ -26,8 +29,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($message)){
         
         $db->query("INSERT INTO `Users` (`Uid`, `Pwd`) VALUES (:Uid, :Pwd)", [
-            ":Uid" => $_POST["uid"],
-            ":Pwd" => $_POST["pwd"]
+            ":Uid" => $signUpUid,
+            ":Pwd" => $signUpPwd
         ]);
 
         $message["SignUpSucess"] = "Sign Up Sucess.. wait 2 sceond";

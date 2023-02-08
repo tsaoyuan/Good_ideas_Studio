@@ -5,21 +5,23 @@ use Core\Vaildator;
 
 $db = new Database();
 $errors = [];
-$currentUid = $_POST["uid"];
+$currentUid = $_POST["uid"]; 
 $currentPwd = $_POST["pwd"];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // dumpDie($currentUid);
     
-    if (!Vaildator::string($_POST['uid'], 1, 25) || !Vaildator::string($_POST['pwd'], 1, 25)) {
+    if (!Vaildator::string($currentUid, 1, 25) || !Vaildator::string($currentPwd, 1, 25)) {
         $errors['emptyInput'] = "Fill in all Fields";
     }else{
-
         $post = $db->query("SELECT * FROM Users where Uid = :Uid and Pwd = :Pwd", [
         ':Uid' => $currentUid,
         ':Pwd' => $currentPwd
         ])->findOrFail();
 
+        // dumpDie($currentUid);
         // check this user have signup
+        // authorizeLogin($post['Uid'] == $currentUid, $post['Pwd'] == $currentPwd);
         authorizeLogin($post['Uid'] == $currentUid, $post['Pwd'] == $currentPwd);
         
         // user have already signup, user imformation set in $user
