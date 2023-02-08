@@ -17,6 +17,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $message["pwdOverLength"] = "Password Over 4 Code";
     }
 
+    if(isset($_SESSION["sqlMessage"])){
+        $message["uidExist"] = $_SESSION["sqlMessage"]; 
+        session_unset();
+        // dumpDie($_SESSION);
+    }
+
     if(empty($message)){
         
         $db->query("INSERT INTO `Users` (`Uid`, `Pwd`) VALUES (:Uid, :Pwd)", [
