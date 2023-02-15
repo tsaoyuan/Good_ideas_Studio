@@ -1,32 +1,46 @@
 <?php
-require base_path('Core/Validator.php');
+require base_path("Core/Validator.php");
 use Core\Database;
 use Core\Vaildator;
 
 $db = new Database();
-$errors = [];
-
+$message = [];
+$signUpUid = $_POST["uid"];
+$signUpPwd = $_POST["pwd"];
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // before insert into check
+    // dumpDie($signUpUid);
     
     // mearge title empty input and title maximum number of characters
-    if(!Vaildator::string($_POST['uid'], 1, 25) || !Vaildator::string($_POST['pwd'], 1, 25)){
-        $errors['emptyInput'] = "Fill in all Fields";
-        
+    if(!Vaildator::string($signUpUid, 1, 25) || !Vaildator::string($signUpPwd, 1, 25)){
+        $message["emptyInput"] = "Fill in all Fields";
     }
     
-    if(empty($errors)){
+    if(!Vaildator::string($signUpPwd, 1, 4)){
+        $message["pwdOverLength"] = "Password Over 4 Code";
+    }
+
+    if(isset($_SESSION["sqlMessage"])){
+        $message["uidExist"] = $_SESSION["sqlMessage"]; 
+        session_unset();
+        // dumpDie($_SESSION);
+    }
+
+    if(empty($message)){
         
         $db->query("INSERT INTO `Users` (`Uid`, `Pwd`) VALUES (:Uid, :Pwd)", [
-            ":Uid" => $_POST['uid'],
-            ":Pwd" => $_POST['pwd']
+            ":Uid" => $signUpUid,
+            ":Pwd" => $signUpPwd
         ]);
+
+        $message["SignUpSucess"] = "Sign Up Sucess.. wait 2 sceond";
+        // dumpDie($message);
+        header("Refresh: 2; url=/login");
     }
     
 }
 
-// require __DIR__.'/../views/signup.view.php';
 view("users/create.view.php", [
-    'heading' => 'Sign Up',
-    'errors'=> $errors 
+    "heading" => 'Sign Up',
+    "message"=> $message 
 ]);

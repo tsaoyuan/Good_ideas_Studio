@@ -19,7 +19,14 @@ class Database{
             return $this;
             
         }catch(PDOException $e){
-            echo $e->getMessage();
+            $errorMessage = $e->getCode();
+            // SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 
+            if ($errorMessage === "23000") {
+                $_SESSION["sqlMessage"] = "該使用者已存在！";
+                // dumpDie($_SESSION);
+            } else {
+                echo $e->getMessage();
+            }
         }
     }
 

@@ -8,7 +8,7 @@ $posts = new Post();
 $posts = $posts->getPosts($_SESSION["uid"]);
 // dumpDie($posts);
 if(isset($_SESSION["uid"])){
-    $currentUser = $_SESSION["uid"];
+    $currentUser = htmlspecialchars($_SESSION["uid"]) ;
 }
 
 view("posts/index.view.php", [
