@@ -1,17 +1,15 @@
 <?php
-use Core\Database;
+use Models\Post;
 
-$db = new Database();
-$currentUid = 'Andy Run';
+$currentUid = $_SESSION['uid'];
+// dumpDie($_SESSION)
 
-$post = $db->query("SELECT * FROM Posts where Id = :Id", [
-    ':Id' => $_GET['id']
-    ])->findOrFail();
+// Models/Post
+$post = new Post();
+$post = $post->getPost($_GET['id']);
 
 // post 權限判斷
 authorize($post['Uid'] == $currentUid);
-
-// require __DIR__.'/../../views/posts/show.view.php';
 
 view("posts/show.view.php", [
     'heading' => 'Post',

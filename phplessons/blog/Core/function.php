@@ -24,11 +24,15 @@ function authorize($condition, $status = Response::FORBIDDEN)
 
 function authorizeLogin($conditionUid, $conditionPwd, $status = Response::FORBIDDEN)
 {
-    if(!$conditionUid || !$conditionPwd ){
+  if (!$conditionUid || !$conditionPwd) {
       abort($status);
-    }
-    
-    abort(200);
+  }
+  // abort(200);
+
+  // user 登入成功 跳轉首頁 
+  // view("index.view.php", [
+  //   'heading' => 'Home'
+  // ]);
 }
 
 // relative path function (path hleper function)

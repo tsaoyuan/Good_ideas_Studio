@@ -1,9 +1,11 @@
 <?php
 require base_path('/Core/Validator.php');
-use Core\Database;
+// use Core\Database;
 use Core\Vaildator;
+use Models\Post;
 
-$db = new Database();
+// $db = new Database();
+$post = new Post();
 
 // before insert into check
 $errors = [];
@@ -18,14 +20,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // title have words, then insert into value
     if(empty($errors)){
         
-        $db->query("INSERT INTO `Posts` (`Uid`, `Title`) VALUES (:Uid, :Title)", [
-            ":Uid" => "Andy Run",
-            ":Title" => $_POST['title']
-        ]);
+        // $db->query("INSERT INTO `Posts` (`Uid`, `Title`) VALUES (:Uid, :Title)", [
+        //     // ":Uid" => "Andy Run",
+        //     ":Uid" => $_SESSION['uid'],
+        //     ":Title" => $_POST['title']
+        // ]);
+
+        $post->save($_SESSION['uid'], $_POST['title']);
+
     }
 
 }
-// require __DIR__.'/../../views/posts/create.view.php';
 
 view("posts/create.view.php", [
     'heading' => 'Create Post',
