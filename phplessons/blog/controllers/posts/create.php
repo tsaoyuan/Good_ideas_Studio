@@ -1,11 +1,14 @@
 <?php
-require './Validator.php';
+require base_path('/Core/Validator.php');
+use Core\Database;
+use Core\Vaildator;
+
 $db = new Database();
-$heading = 'Create Post';
+
+// before insert into check
+$errors = [];
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-// before insert into check
-    $errors = [];
     
     // mearge title empty input and title maximum number of characters
     if(!Vaildator::string($_POST['title'], 1, 250)){
@@ -22,4 +25,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
 }
-require __DIR__.'/../views/posts-create.view.php';
+// require __DIR__.'/../../views/posts/create.view.php';
+
+view("posts/create.view.php", [
+    'heading' => 'Create Post',
+    'errors'=> $errors 
+]);
