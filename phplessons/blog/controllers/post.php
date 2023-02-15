@@ -4,16 +4,10 @@ $currentUid = 'John666';
 
 $post = $db->query("SELECT * FROM Posts where Id = :Id", [
     ':Id' => $_GET['id']
-    ])->fetch();
+    ])->findOrFail();
 
-// 不符合搜尋條件
-if (! $post){
-    abort(Response::NOT_FOUND);
-}
-// 細分不符合搜尋條件的結果
-if($post['Uid'] !== '$currentUid'){
-    abort(Response::FORBIDDEN);
-}
+// post 權限判斷
+authorize($post['Uid'] == $currentUid);
 
 $heading = 'Post';
 require __DIR__.'/../views/post.view.php';

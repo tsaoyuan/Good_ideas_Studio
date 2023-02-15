@@ -1,7 +1,6 @@
 <?php
 $db = new Database();
-// $posts = $db->query("SELECT * FROM Posts Where Uid = 'John666'")->fetchAll();
-$posts = $db->query("SELECT * FROM Posts")->fetchAll();
+$posts = $db->query("SELECT * FROM Posts")->get();
 // dumpDie($posts);
 
 

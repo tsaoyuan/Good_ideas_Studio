@@ -12,3 +12,12 @@ function dumpDie($value){
 function urlIs($value){
     return $_SERVER['REQUEST_URI'] == $value;
 }
+
+// post 權限判斷
+function authorize($condition, $status = Response::FORBIDDEN)
+{
+    if(!$condition){
+      abort($status);
+    }
+}
+

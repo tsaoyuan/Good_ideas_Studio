@@ -1,14 +1,6 @@
 <?php
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-// echo $uri;
-
-$routers = [
-    '/' => './controllers/index.php',
-    '/posts' => './controllers/posts.php',
-    '/post' => './controllers/post.php',
-    '/about' => './controllers/about.php',
-    '/contact' => './controllers/contact.php',
-];
+$routers = require ('./routers.php');
 
 function abort($code = 404){
 

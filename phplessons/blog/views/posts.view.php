@@ -13,9 +13,15 @@
         
 
         <?php endforeach; ?>
-        <span class="mt-10 inline-block">
-            <a href="/" class="text-red-300">Go back Home</a>
-        </span>
+        <section class="btn">
+            <span class="mt-5 p-4 inline-block hover:underline">
+                <a href="/" class="text-red-500">Go back Home</a>
+            </span>
+    
+            <span class="mt-5 p-5 inline-block hover:underline">
+                <a href="/posts/create" class="text-blue-700">Create Post</a>
+            </span>
+        </section>
     </div>
 </main>
 
